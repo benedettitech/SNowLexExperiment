@@ -3,10 +3,20 @@
     <sp_widget action="INSERT_OR_UPDATE">
         <client_script><![CDATA[function() {
   var c = this;
+	
+	//Initialize Chat Vars
+	c.data.lastMsg = '';
 	c.data.botmsg = 'Lex is standing by'
 	
+	//Initialize Lex
+	c.lexruntime = new AWS.LexRuntime();
+	
 	c.talktobot = function(){
-		c.server.update();
+		c.data.botmsg = 'Message (' + c.data.toBot + ') received';
+		c.data.lastMsg = c.data.toBot;
+		c.data.toBot = '';
+		console.log(c.lexruntime);
+		console.log(c.data);
 	}
 }
 ]]></client_script>
@@ -26,13 +36,13 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-	var callLex = function(msgOut){
-		data.botmsg = 'message received';
-	}
-	if(input){
-	 data.toBot = input.toBot;	
-	 callLex(data.toBot);
-	}
+	
+	//Initialize AWS Properties
+	data.botURI = gs.getProperty('benedettitech.lex.api.url')
+	data.clientid = gs.getProperty('benedettitech.lex.api.id');
+	data.clientsecret = gs.getProperty('benedettitech.lex.api.secret')
+	data.lexuser = gs.getProperty('benedettitech.lex.username')
+	
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -40,14 +50,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-08-31 15:55:33</sys_created_on>
         <sys_id>e4688aa7db30030006f7d100cf9619c7</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_name>Lex Widget</sys_name>
         <sys_package display_value="Lex Experiment" source="x_70280_lex_experi">f7ebc745db20030015ee52b0cf9619ad</sys_package>
         <sys_policy/>
         <sys_scope display_value="Lex Experiment">f7ebc745db20030015ee52b0cf9619ad</sys_scope>
         <sys_update_name>sp_widget_e4688aa7db30030006f7d100cf9619c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-08-31 17:52:26</sys_updated_on>
+        <sys_updated_on>2017-09-01 20:22:37</sys_updated_on>
         <template><![CDATA[<div>
 <h1>
   Lex Experiment Page
@@ -57,7 +67,7 @@
     Send Message
   </button>
   <br>
- You entered: {{c.data.toBot}}
+ You entered: {{c.data.lastMsg}}
 </div>
 
 <div>

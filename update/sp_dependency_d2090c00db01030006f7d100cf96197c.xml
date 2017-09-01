@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_dependency">
+    <sp_dependency action="INSERT_OR_UPDATE">
+        <module/>
+        <name>AWS</name>
+        <page_load>false</page_load>
+        <sp_portals/>
+        <sys_class_name>sp_dependency</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-01 19:56:19</sys_created_on>
+        <sys_id>d2090c00db01030006f7d100cf96197c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AWS</sys_name>
+        <sys_package display_value="Lex Experiment" source="x_70280_lex_experi">f7ebc745db20030015ee52b0cf9619ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Lex Experiment">f7ebc745db20030015ee52b0cf9619ad</sys_scope>
+        <sys_update_name>sp_dependency_d2090c00db01030006f7d100cf96197c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-09-01 19:56:19</sys_updated_on>
+    </sp_dependency>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="AWS">d2090c00db01030006f7d100cf96197c</sp_dependency>
+        <sp_widget display_value="Lex Widget">e4688aa7db30030006f7d100cf9619c7</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-01 19:57:28</sys_created_on>
+        <sys_id>5e59484cdb41030006f7d100cf9619a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AWS.Lex Widget</sys_name>
+        <sys_package display_value="Lex Experiment" source="x_70280_lex_experi">f7ebc745db20030015ee52b0cf9619ad</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Lex Experiment">f7ebc745db20030015ee52b0cf9619ad</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_5e59484cdb41030006f7d100cf9619a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-09-01 19:57:28</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>
