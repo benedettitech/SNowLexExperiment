@@ -8,15 +8,49 @@
 	c.data.lastMsg = '';
 	c.data.botmsg = 'Lex is standing by'
 	
-	//Initialize Lex
-	c.lexruntime = new AWS.LexRuntime();
+	//Initialize AWS Creds
+	c.lexCreds = new AWS.Credentials(
+		options = {
+			'accessKeyId' : c.data.clientid,
+			'secretAccessKey' : c.data.clientsecret
+		}
+	)
 	
+	//Initialize Lex
+	c.lexruntime = new AWS.LexRuntime(
+		options ={
+		'credentials' : c.lexCreds,
+		'endpoint' : new AWS.Endpoint(c.data.botURI),
+		'region' : c.data.region
+		});
+	
+	//Main Event Handler
 	c.talktobot = function(){
-		c.data.botmsg = 'Message (' + c.data.toBot + ') received';
+			var params = {
+				botAlias: c.data.botname,
+				botName: c.data.botname,
+				inputText: c.data.toBot,
+				userId: c.data.lexuser
+		};
+		
+		//Preserve previous entry
 		c.data.lastMsg = c.data.toBot;
-		c.data.toBot = '';
-		console.log(c.lexruntime);
-		console.log(c.data);
+		
+		//Call to Lex
+		c.lexruntime.postText(params, function(err, data) {
+			if (err) {
+				console.log(err, err.stack); // an error occurred
+							 }
+			else if (data.dialogState == 'ReadyForFulfillment'){
+				c.data.botmsg = 'You have successfully ordered!'; //successful order of Intent
+			}
+			else{     
+				c.data.botmsg = data.message; 
+				console.log(data);          // successful response
+				}
+					
+		});
+		c.data.toBot = ''; //Reinitialize Input
 	}
 }
 ]]></client_script>
@@ -38,11 +72,13 @@
         <script><![CDATA[(function() {
 	
 	//Initialize AWS Properties
-	data.botURI = gs.getProperty('benedettitech.lex.api.url')
-	data.clientid = gs.getProperty('benedettitech.lex.api.id');
-	data.clientsecret = gs.getProperty('benedettitech.lex.api.secret')
-	data.lexuser = gs.getProperty('benedettitech.lex.username')
-	
+	data.botURI = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.url')
+	data.botname = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.botname')
+	data.clientid = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.id');
+	data.clientsecret = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.secret')
+	data.lexuser = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.username')
+	data.region = gs.getProperty('x_70280_lex_experi.benedettitech.lex.api.region')
+
 })();
 ]]></script>
         <servicenow>false</servicenow>
@@ -50,14 +86,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-08-31 15:55:33</sys_created_on>
         <sys_id>e4688aa7db30030006f7d100cf9619c7</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>Lex Widget</sys_name>
         <sys_package display_value="Lex Experiment" source="x_70280_lex_experi">f7ebc745db20030015ee52b0cf9619ad</sys_package>
         <sys_policy/>
         <sys_scope display_value="Lex Experiment">f7ebc745db20030015ee52b0cf9619ad</sys_scope>
         <sys_update_name>sp_widget_e4688aa7db30030006f7d100cf9619c7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-09-01 20:22:37</sys_updated_on>
+        <sys_updated_on>2017-09-05 19:13:05</sys_updated_on>
         <template><![CDATA[<div>
 <h1>
   Lex Experiment Page

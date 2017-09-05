@@ -2,7 +2,7 @@
 <record_update table="sys_properties">
     <sys_properties action="INSERT_OR_UPDATE">
         <choices/>
-        <description/>
+        <description>Access key ID of AWS IAM User with Run Bot rights</description>
         <ignore_cache>false</ignore_cache>
         <is_private>false</is_private>
         <name>x_70280_lex_experi.benedettitech.lex.api.id</name>
@@ -12,16 +12,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-08-31 18:00:23</sys_created_on>
         <sys_id>06842627db70030006f7d100cf96190d</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>x_70280_lex_experi.benedettitech.lex.api.id</sys_name>
         <sys_package display_value="Lex Experiment" source="x_70280_lex_experi">f7ebc745db20030015ee52b0cf9619ad</sys_package>
         <sys_policy/>
         <sys_scope display_value="Lex Experiment">f7ebc745db20030015ee52b0cf9619ad</sys_scope>
         <sys_update_name>sys_properties_06842627db70030006f7d100cf96190d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-08-31 18:00:23</sys_updated_on>
+        <sys_updated_on>2017-09-05 19:29:17</sys_updated_on>
         <type>string</type>
-        <value/>
+        <value>/* Insert Value Here */</value>
         <write_roles>admin</write_roles>
     </sys_properties>
     <sys_translated_text action="delete_multiple" query="documentkey=06842627db70030006f7d100cf96190d"/>
