@@ -1,3 +1,11 @@
+# Welcome to my Amazon Lex Experiment
+In order to deploy this app, you will need access to the following
+  1. A ServiceNow instance
+  2. An AWS Account with a Lex Bot
+  3. An AWS User with the AmazonLexRunBotsOnly policy assigned
+  
+There are also six system properties found under benedettitech.lex that will require population in order for the Portal to function.  Each of these will be available if you've provisioned the above AWS resources
+
 # Generated files
 This repository contains generated files and a checksum.
 
